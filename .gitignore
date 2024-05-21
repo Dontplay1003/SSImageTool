@@ -1,4 +1,6 @@
 /.idea/
 /input/
 /output/
+/build/
 /.vscode/
+/main.spec
