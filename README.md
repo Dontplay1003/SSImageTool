@@ -1,5 +1,9 @@
 # <center>SSImageTool
-<center> [English](README.md) | [简体中文](README_ZH.md) </center>
+<div align="center">
+
+[English](README.md) | [简体中文](README_ZH.md)
+
+</div>
 
 SSImageTool is a simple tool to process the image to fit steam showcase.
 

@@ -1,5 +1,9 @@
 # <center>SSImageTool
-<center> [English](README.md) | [简体中文](README_ZH.md) </center>
+<div align="center">
+
+[English](README.md) | [简体中文](README_ZH.md)
+
+</div>
 
 SSImageTool是一个简单的工具，用于处理图片使其可以被上传到steam的创意工坊展柜和艺术作品展柜。
 
