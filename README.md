@@ -19,5 +19,8 @@ Optional arguments:
 - `-w` or `--workshop` to process the image for steam workshop showcase
 - `-a` or `--artwork` to process the image for steam artwork showcase
 
+## Other
+I'm a little busy recently, so this tools may not that perfect. If you have any problem, please open an issue.
+
 ## License
 MIT License
