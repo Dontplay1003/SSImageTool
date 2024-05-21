@@ -1,9 +1,7 @@
 import os
 from PIL import Image
 
-max_size = 5
 w_width = 126
-# w_width = 200
 a_width = 630
 
 
@@ -11,7 +9,7 @@ def init(args):
     if not os.path.exists(args.output):
         try:
             os.makedirs(args.output)
-        except:
+        except OSError:
             print("Failed to create the output directory.")
             exit(1)
 
@@ -23,13 +21,13 @@ def read(args):
     img = Image.open(args.input)
     args.format = img.format.lower()
 
-    type = 'art' if args.art else 'workspace'
+    p_type = 'artwork' if args.artwork else 'workspace'
     args.file_name = os.path.basename(args.input)
-    args.out = os.path.join(args.output, type + '_' + args.file_name)
+    args.out = os.path.join(args.output, p_type + '_' + args.file_name)
     if not os.path.exists(args.out):
         try:
             os.makedirs(args.out)
-        except:
+        except OSError:
             print("Failed to create the output directory.")
             exit(1)
 
@@ -38,12 +36,20 @@ def read(args):
 
 def set_args(img, args):
     args.src_width, args.src_height = img.size
-    if args.art:
-        args.dest_width = a_width
-        args.dest_height = int(args.src_height * args.dest_width / args.src_width)
+    if args.artwork:
+        if args.src_width < a_width:
+            args.dest_width = a_width
+            args.dest_height = int(args.src_height * args.dest_width / args.src_width)
+        else:
+            args.dest_width = args.src_width
+            args.dest_height = args.src_height
     else:
-        args.dest_width = w_width * 5
-        args.dest_height = int(args.src_height * args.dest_width / args.src_width)
+        if args.src_width < w_width * 5:
+            args.dest_width = w_width * 5
+            args.dest_height = int(args.src_height * args.dest_width / args.src_width)
+        else:
+            args.dest_width = args.src_width
+            args.dest_height = args.src_height
 
 
 def split(img, args):
